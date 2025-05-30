@@ -1,0 +1,1755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio - Fitri Zakiatul Lailia</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-color: #1f2937;
+            --bg-color: #ffffff;
+            --card-bg: rgba(255, 255, 255, 0.85);
+            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-color: #e5e7eb;
+            --gradient-1: #f1f1f1;
+            --gradient-2: #dbeafe;
+            --gradient-3: #f1f1f1;
+        }
+
+        [data-theme="dark"] {
+            --primary-color: #60a5fa;
+            --text-color: #f8fafc;
+            --bg-color: #0a192f;
+            --card-bg: rgba(59, 73, 107, 0.85);
+            --shadow-color: rgba(0, 0, 0, 0.3);
+            --border-color: #374151;
+            --gradient-1: #1f2937;
+            --gradient-2: #0a192f;
+            --gradient-3: #1f2937;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-2));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .header {
+            background: none;
+            /* Hilangkan background putih */
+            backdrop-filter: none;
+            box-shadow: none;
+            padding-top: 1.25rem;
+            padding-bottom: 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .nav-tabs {
+            display: flex;
+            gap: 0.5rem;
+            background-color: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-tab {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background: transparent;
+            color: var(--text-color);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.95rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+
+        .nav-tab::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .nav-tab:hover::before {
+            left: 100%;
+        }
+
+        .nav-tab.active {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .nav-tab:hover:not(.active) {
+            background-color: var(--card-bg);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px var(--shadow-color);
+        }
+
+        .theme-toggle {
+            position: absolute;
+            right: 0;
+            background: var(--card-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 32px var(--shadow-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: var(--primary-color);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+        }
+
+        .theme-toggle:hover::before {
+            width: 100%;
+            height: 100%;
+        }
+
+        .theme-toggle:hover {
+            transform: translateY(-3px) rotate(15deg);
+            box-shadow: 0 6px 20px var(--shadow-color);
+        }
+
+        .theme-toggle i {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-right: 2rem;
+            padding-left: 2rem;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+            border-radius: 2px;
+        }
+
+        .profile-header {
+            text-align: center;
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .profile-header h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-header .location {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .professional-summary-section {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .professional-summary-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .professional-summary-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .professional-summary {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        .experience-item,
+        .organization-item {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .experience-item::before,
+        .organization-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+        }
+
+        .experience-item h3,
+        .organization-item h3 {
+            color: var(--text-color);
+            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
+        }
+
+        .experience-item .company,
+        .organization-item .org-name {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item .period,
+        .organization-item .period {
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .experience-item .description,
+        .organization-item .description {
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        .portfolio-filters {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.25rem;
+            border: 2px solid var(--primary-color);
+            background: transparent;
+            color: var(--primary-color);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background-color: var(--primary-color);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .filter-btn:hover::before,
+        .filter-btn.active::before {
+            left: 0;
+        }
+
+        .filter-btn.active,
+        .filter-btn:hover {
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .portfolio-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.05), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .portfolio-card:hover::before {
+            left: 100%;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 12px 30px var(--shadow-color);
+            border-color: var(--primary-color);
+        }
+
+        .portfolio-card h3 {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .portfolio-card .category {
+            color: var(--primary-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .portfolio-card .description {
+            color: var(--text-color);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .portfolio-card .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+
+        [data-theme="dark"] .tech-tag {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .portfolio-card .links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .portfolio-card .links a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: all 0.3s ease;
+            padding: 0.25rem 0;
+            border-radius: 5px;
+        }
+
+        .portfolio-card .links a:hover {
+            transform: translateX(5px);
+            color: #1d4ed8;
+        }
+
+        .portfolio-card .links a i {
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-card .links a:hover i {
+            transform: scale(1.2);
+        }
+
+        .professional-summary {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                padding: 0 1rem;
+            }
+
+            .nav-tabs {
+                width: 100%;
+                justify-content: space-around;
+            }
+
+            .nav-tab {
+                flex: 1;
+                text-align: center;
+                padding: 0.5rem;
+                font-size: 0.85rem;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .profile-header h1 {
+                font-size: 2rem;
+            }
+
+            .section {
+                padding: 1.5rem;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-tab {
+                padding: 0.5rem 0.25rem;
+                font-size: 0.8rem;
+            }
+
+            .profile-header h1 {
+                font-size: 1.75rem;
+            }
+        }
+    </style>
+    <style>
+        /* Background animasi gradient bergerak */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(-45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-2));
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Profile section gabungan */
+        .profile-section {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .profile-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .profile-section .profile-header {
+            margin-bottom: 0;
+            border-radius: 20px 20px 0 0;
+        }
+
+        .profile-section .professional-summary {
+            padding: 1.5rem;
+            background: transparent;
+            box-shadow: none;
+            margin-bottom: 0;
+        }
+
+        .profile-section .professional-summary h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .profile-section .professional-summary p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        /* Download CV button */
+        .cv-download {
+            padding: 0 1.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.4);
+        }
+
+        /* Contact section */
+        .contact-section {
+            animation: slideInLeft 0.6s ease-out 0.2s both;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.5rem;
+            background: rgba(37, 99, 235, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+        }
+
+        .contact-item:hover {
+            transform: translateX(10px);
+            background: rgba(37, 99, 235, 0.1);
+            border-color: var(--primary-color);
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        .contact-item strong {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-item p {
+            color: var(--text-color);
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Skills section */
+        .skills-section {
+            animation: slideInRight 0.6s ease-out 0.4s both;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(37, 99, 235, 0.1);
+            font-size: 0.95rem;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-item::before {
+            content: '•';
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-right: 0.75rem;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            padding-left: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .skill-item:hover::before {
+            transform: scale(1.3);
+        }
+
+        /* Education section */
+        .education-section {
+            animation: slideInUp 0.6s ease-out 0.6s both;
+        }
+
+        .education-item {
+            display: flex;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(37, 99, 235, 0.02);
+            border-radius: 15px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateX(10px);
+            background: rgba(37, 99, 235, 0.05);
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .education-icon {
+            flex-shrink: 0;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .education-content h3 {
+            color: var(--text-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .education-content .university {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .education-content .period {
+            color: var(--text-color);
+            opacity: 0.7;
+            font-size: 0.9rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .education-content .description {
+            color: var(--text-color);
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Animasi */
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            .education-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .education-icon {
+                align-self: center;
+            }
+
+            .profile-header-new h1 {
+                font-size: 1.6rem;
+            }
+
+            .professional-summary-new p {
+                font-size: 0.95rem;
+            }
+
+            .contact-item-new {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.75rem;
+            }
+
+            .contact-item-new:hover {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Gabungan profile section dengan layout kiri-kanan */
+        .combined-profile-section {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px var(--shadow-color);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-color);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            min-height: 80vh;
+        }
+
+        .combined-profile-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px var(--shadow-color);
+        }
+
+        .profile-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+
+        /* Bagian kiri - Header dan Summary */
+        .profile-left {
+            background: linear-gradient(135deg, var(--primary-color), #60a5fa);
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .profile-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .profile-header-new {
+            text-align: center;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-header-new h1 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .profile-header-new .location {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .professional-summary-new {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .professional-summary-new h2 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .professional-summary-new p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: justify;
+        }
+
+        .cv-download-new {
+            text-align: center;
+            margin-top: 0.5rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .download-btn-new {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn-new::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .download-btn-new:hover::before {
+            left: 100%;
+        }
+
+        .download-btn-new:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Bagian kanan - Contact Information */
+        .profile-right {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .contact-section-new h2 {
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .contact-grid-new {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .contact-item-new {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1rem;
+            background: rgba(37, 99, 235, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(37, 99, 235, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-item-new::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .contact-item-new:hover::before {
+            left: 100%;
+        }
+
+        .contact-item-new:hover {
+            transform: translateX(10px);
+            background: rgba(37, 99, 235, 0.1);
+            border-color: var(--primary-color);
+            box-shadow: 0 5px 15px var(--shadow-color);
+        }
+
+        .contact-item-new i {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            width: 40px;
+            text-align: center;
+            flex-shrink: 0;
+        }
+
+        .contact-item-new .contact-info {
+            flex-grow: 1;
+        }
+
+        .contact-item-new strong {
+            color: var(--primary-color);
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-item-new p {
+            color: var(--text-color);
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+                min-height: auto;
+            }
+
+            .profile-left {
+                border-radius: 20px 20px 0 0;
+            }
+
+            .profile-right {
+                border-radius: 0 0 20px 20px;
+            }
+
+            .combined-profile-section {
+                min-height: auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .profile-left,
+            .profile-right {
+                padding: 1.5rem;
+            }
+
+            .profile-header-new h1 {
+                font-size: 1.8rem;
+            }
+
+            .contact-item-new {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .contact-item-new i {
+                font-size: 1.5rem;
+                width: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .profile-header-new h1 {
+                font-size: 1.6rem;
+            }
+
+            .professional-summary-new p {
+                font-size: 0.95rem;
+            }
+
+            .contact-item-new {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.75rem;
+            }
+
+            .contact-item-new:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="animated-background"></div>
+
+    <header class="header">
+        <div class="header-content">
+            <nav class="nav-tabs">
+                <button class="nav-tab active" data-tab="profile">
+                    <i class="fas fa-user"></i> Profile
+                </button>
+                <button class="nav-tab" data-tab="portfolio">
+                    <i class="fas fa-briefcase"></i> Portfolio
+                </button>
+                <button class="nav-tab" data-tab="articles">
+                    <i class="fas fa-newspaper"></i> Articles
+                </button>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="combined-profile-section">
+            <div class="profile-container">
+                <!-- Bagian Kiri: Header & Summary -->
+                <div class="profile-left">
+                    <div class="profile-header-new">
+                        <h1>Fitri Zakiatul Lailia S.Kom</h1>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Surabaya, East Java, Indonesia
+                        </div>
+                    </div>
+
+                    <div class="professional-summary-new">
+                        <!-- <h2><i class="fas fa-user-tie"></i> Ringkasan Profesional</h2> -->
+                        <p>
+                            Lulusan Teknologi Informasi dari Universitas Brawijaya dengan pengalaman 2 tahun sebagai
+                            System
+                            Analyst. Terbiasa bekerja dengan tim lintas fungsi dalam menganalisis kebutuhan, mengelola
+                            data,
+                            serta membuat laporan dan dokumentasi sistem secara terstruktur. Memiliki ketelitian,
+                            kemampuan
+                            komunikasi yang baik, serta pemahaman terhadap proses bisnis dan alur kerja.
+                        </p>
+                    </div>
+
+                    <div class="cv-download-new">
+                        <a href="#" class="download-btn-new"
+                            onclick="alert('CV akan segera tersedia untuk didownload')">
+                            <i class="fas fa-download"></i>
+                            Download CV
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Bagian Kanan: Contact Information -->
+                <div class="profile-right">
+                    <div class="contact-section-new">
+                        <h2><i class="fas fa-address-book"></i> Informasi Kontak</h2>
+                        <div class="contact-grid-new">
+                            <div class="contact-item-new">
+                                <i class="fas fa-envelope"></i>
+                                <div class="contact-info">
+                                    <strong>Email</strong>
+                                    <p>fitrizakiatullailia.work@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="contact-item-new">
+                                <i class="fab fa-whatsapp"></i>
+                                <div class="contact-info">
+                                    <strong>WhatsApp</strong>
+                                    <p>+62 857-4878-7306</p>
+                                </div>
+                            </div>
+                            <div class="contact-item-new">
+                                <i class="fab fa-linkedin"></i>
+                                <div class="contact-info">
+                                    <strong>LinkedIn</strong>
+                                    <p>Fitri Zakiatul Lailia</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- PERUBAHAN 5: Tambah section skills -->
+        <div class="section skills-section">
+            <h2><i class="fas fa-cogs"></i> Keahlian</h2>
+
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Soft Skills</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Kemampuan Komunikasi</li>
+                        <li class="skill-item">Pemecahan Masalah</li>
+                        <li class="skill-item">Berpikir Kritis</li>
+                        <li class="skill-item">Kemampuan Negosiasi</li>
+                        <li class="skill-item">Adaptabilitas</li>
+                        <li class="skill-item">Manajemen Tim</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Hard Skills</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">Analisis Kebutuhan</li>
+                        <li class="skill-item">Pemodelan Sistem (UML, Use Case, Flowchart) </li>
+                        <li class="skill-item">Analisis Proses Bisnis (BPMN)</li>
+                        <li class="skill-item">Pengetahuan SDLC</li>
+                        <li class="skill-item">Tools Dokumentasi & Manajemen Proyek</li>
+                        <li class="skill-item">Pengujian Sistem (Test Case,Skenario UAT)</li>
+                        <li class="skill-item">Desain Antarmuka (Figma)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERUBAHAN 6: Tambah section pendidikan -->
+        <div class="section education-section">
+            <h2><i class="fas fa-graduation-cap"></i> Pendidikan</h2>
+
+            <div class="education-item">
+                <div class="education-icon">
+                    <i class="fas fa-university"></i>
+                </div>
+                <div class="education-content">
+                    <h3>S1 Teknologi Informasi</h3>
+                    <div class="university">Universitas Brawijaya</div>
+                    <div class="period">2018 - 2022</div>
+                    <div class="description">
+                        Skripsi : Pengembangan Sistem Informasi Persewaan Terintegrasi Menggunakan Payment Gateway
+                        (Studi Kasus : CV Mita Alat Pesta)
+                    </div>
+                    <div class="period">IPK: 3.71/4.00</div>
+                </div>
+            </div>
+            <!-- 
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3>Certified Business Analysis Professional (CBAP)</h3>
+                        <div class="university">International Institute of Business Analysis</div>
+                        <div class="period">2021</div>
+                        <div class="description">
+                            Sertifikasi profesional dalam bidang business analysis dan requirements management.
+                        </div>
+                    </div>
+                </div> -->
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-briefcase"></i> Pengalaman Kerja</h2>
+
+            <div class="experience-item">
+                <h3>System Analyst</h3>
+                <div class="company">Morning Glory Enterprise</div>
+                <div class="period">September 2022 - Sekarang</div>
+                <div class="description">
+                    <li class="skill-item">Warehouse Management System (WMS): Merancang dan mengembangkan sistem
+                        manajemen gudang seperti fitur
+                        pengelolaan Purchase Order (PO), budgeting, serta pembuatan Surat Jalan Masuk dan Keluar,
+                        guna meningkatkan efisiensi operasional
+                        gudang dan mendukung peningkatan kinerja perusahaan secara menyeluruh.</li>
+                    <li class="skill-item">Marketplace Platform untuk Logistik: Membangun platform marketplace untuk
+                        mempertemukan seller dan buyer di sektor logistik,
+                        mencakup pengembangan backoffice, sistem manajemen produk, serta integrasi sistem pembayaran
+                        dengan payment gateway untuk
+                        transaksi yang aman dan lancar</li>
+                    <li class="skill-item">Aplikasi Manajemen Silsilah Keluarga: Mengembangkan aplikasi pribadi
+                        untuk manajemen silsilah keluarga, meliputi backoffice dan
+                        Aplikasi, guna mempermudah visualisasi dan pengelolaan data keluarga lintas generasi.
+                    </li>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3>System Analyst Intern</h3>
+                <div class="company">PT. Alfahuma Rekayasa Teknologi</div>
+                <div class="period">Juli 2021 - September 2021</div>
+                <div class="description">
+                    <li class="skill-item">Mendokumentasikan hasil rapat dengan tim pengembang dan stakeholder untuk
+                        memastikan setiap
+                        keputusan dan kebutuhan sistem tercatat dengan baik.</li>
+                    <li class="skill-item">Melakukan analisis kompetitor untuk memahami fitur aplikasi sejenis dan
+                        memberikan rekomendasi fungsionalitas yang dapat
+                        diterapkan dalam pengembangan aplikasi yang sedang dikembangkan.</li>
+                    <li class="skill-item">Berperan dalam proses requirement gathering dengan pelanggan, membantu
+                        tim dalam mengumpulkan dan menganalisis kebutuhan
+                        sistem untuk aplikasi yang akan dibangun.
+                    </li>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <h3>Asisten Pengajar Dasar Basis Data & Algoritma Struktur Data</h3>
+                <div class="company">Fakultas Ilmu Komputer Universitas Brawijaya</div>
+                <div class="period">Agustus 2020 - Agustus 2021</div>
+                <div class="description">
+                    <li class="skill-item">Menjabat sebagai asisten pengajar untuk kelas Basis Data Dasar dan
+                        Algoritma & Struktur Data</li>
+                    <li class="skill-item">Membimbing mahasiswa dalam memahami konsep dasar basis data, struktur
+                        data, serta penerapan SQL melalui sesi praktik dan diskusi
+                        rutin 2x seminggu.
+                    </li>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2><i class="fas fa-users"></i> Pengalaman Organisasi</h2>
+
+            <div class="organization-item">
+                <h3>Sekretaris Umum</h3>
+                <div class="org-name">Membimbing mahasiswa dalam memahami konsep dasar basis data, struktur data,
+                    serta penerapan SQL melalui sesi praktik dan diskusi
+                    rutin 2x seminggu.</div>
+                <div class="period">Januari 2020 - Januari 2021</div>
+                <div class="description">
+                    <li class="skill-item">Bertanggungjawab dalam melakukan korespondensi (surat-menyurat dan rapat)
+                    </li>
+                    <li class="skill-item">Melakukan penjadwalan untuk setiap kegiatan KBMTI</li>
+                    <li class="skill-item">Mengatur kebijakan terkait administrasi dan kesekretariatan</li>
+                </div>
+            </div>
+
+            <div class="organization-item">
+                <h3>Staf Departement Advokasi</h3>
+                <div class="org-name">Surabaya IT Professional Community</div>
+                <div class="period">2021 - 2023</div>
+                <div class="description">
+                    <li class="skill-item">Berkontribusi dalam penyelenggaraan Crisis Center UKT</li>
+                    <li class="skill-item">Melakukan tugas rutin advokasi yang meliputi pencarian informasi
+                        beasiswa, pelayanan aspirasi mahasiswa, serta melayani permintaan
+                        jawaban solusi bidang akademik mahasiswa program studi teknologi informasi</li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Tab -->
+    <div class="tab-content" id="portfolio">
+        <div class="section">
+            <h2><i class="fas fa-briefcase"></i> My Portfolio</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="pekerjaan1">Pekerjaan 1</button>
+                <button class="filter-btn" data-filter="pekerjaan2">Pekerjaan 2</button>
+                <button class="filter-btn" data-filter="lainnya">Lain-lain</button>
+            </div>
+
+            <div class="portfolio-grid">
+                <div class="portfolio-card" data-category="pekerjaan1">
+                    <div class="category">Pekerjaan 1</div>
+                    <h3>Enterprise Resource Planning System</h3>
+                    <div class="description">
+                        Memimpin analisis dan implementasi sistem ERP untuk perusahaan manufaktur dengan 500+
+                        karyawan. Proyek ini mencakup modul inventory, finance, HR, dan production planning.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">SAP</span>
+                        <span class="tech-tag">Business Analysis</span>
+                        <span class="tech-tag">Process Mapping</span>
+                        <span class="tech-tag">UAT</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> View Details</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="pekerjaan1">
+                    <div class="category">Pekerjaan 1</div>
+                    <h3>Customer Relationship Management System</h3>
+                    <div class="description">
+                        Menganalisis kebutuhan bisnis dan merancang sistem CRM untuk meningkatkan customer
+                        engagement dan sales performance. Implementasi berhasil meningkatkan conversion rate sebesar
+                        35%.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Salesforce</span>
+                        <span class="tech-tag">Requirements Analysis</span>
+                        <span class="tech-tag">Workflow Design</span>
+                        <span class="tech-tag">Data Migration</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> View Details</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="pekerjaan2">
+                    <div class="category">Pekerjaan 2</div>
+                    <h3>E-commerce Mobile Application</h3>
+                    <div class="description">
+                        Business analysis dan UI/UX design untuk aplikasi mobile e-commerce. Fokus pada user
+                        experience optimization dan conversion funnel analysis untuk meningkatkan penjualan online.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">React Native</span>
+                        <span class="tech-tag">UI/UX Design</span>
+                        <span class="tech-tag">User Research</span>
+                        <span class="tech-tag">A/B Testing</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> View Details</a>
+                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="pekerjaan2">
+                    <div class="category">Pekerjaan 2</div>
+                    <h3>Business Intelligence Dashboard</h3>
+                    <div class="description">
+                        Merancang dan mengimplementasikan dashboard BI untuk executive reporting. Mengintegrasikan
+                        data dari multiple sources dan menyajikan insights yang actionable untuk strategic decision
+                        making.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Power BI</span>
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Data Visualization</span>
+                        <span class="tech-tag">ETL Process</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> View Details</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="lainnya">
+                    <div class="category">Lain-lain</div>
+                    <h3>Personal Finance Management App</h3>
+                    <div class="description">
+                        Proyek personal untuk mengembangkan aplikasi manajemen keuangan pribadi. Menerapkan
+                        prinsip-prinsip UX design dan system analysis dalam pengembangan produk digital.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Firebase</span>
+                        <span class="tech-tag">UI/UX Design</span>
+                        <span class="tech-tag">Product Management</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
+                        <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card" data-category="lainnya">
+                    <div class="category">Lain-lain</div>
+                    <h3>Community Management Platform</h3>
+                    <div class="description">
+                        Platform untuk mengelola komunitas IT professionals di Surabaya. Mencakup fitur event
+                        management, member directory, dan knowledge sharing forum.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">WordPress</span>
+                        <span class="tech-tag">Community Building</span>
+                        <span class="tech-tag">Event Management</span>
+                        <span class="tech-tag">Content Strategy</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Visit Site</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Articles Tab -->
+    <div class="tab-content" id="articles">
+        <div class="section">
+            <h2><i class="fas fa-newspaper"></i> Articles & Publications</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-card">
+                    <div class="category">Technical Article</div>
+                    <h3>Best Practices in Business Requirements Gathering</h3>
+                    <div class="description">
+                        Comprehensive guide on effective techniques for gathering and documenting business
+                        requirements in system analysis projects.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Business Analysis</span>
+                        <span class="tech-tag">Requirements Engineering</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Read Article</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="category">Case Study</div>
+                    <h3>Digital Transformation in Indonesian SMEs</h3>
+                    <div class="description">
+                        Analysis of digital transformation challenges and opportunities for small-medium enterprises
+                        in Indonesia, with practical implementation strategies.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Digital Transformation</span>
+                        <span class="tech-tag">SME Strategy</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Read Case Study</a>
+                    </div>
+                </div>
+
+                <div class="portfolio-card">
+                    <div class="category">UI/UX Article</div>
+                    <h3>User-Centered Design in Enterprise Applications</h3>
+                    <div class="description">
+                        Exploring how to apply user-centered design principles in complex enterprise software to
+                        improve user adoption and satisfaction.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">UX Design</span>
+                        <span class="tech-tag">Enterprise Software</span>
+                    </div>
+                    <div class="links">
+                        <a href="#"><i class="fas fa-external-link-alt"></i> Read Article</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('themeToggle');
+            const themeIcon = themeToggle.querySelector('i');
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.documentElement.setAttribute('data-theme', savedTheme);
+                updateThemeIcon(savedTheme);
+            }
+
+            themeToggle.addEventListener('click', function () {
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                document.documentElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            });
+
+            function updateThemeIcon(theme) {
+                if (theme === 'dark') {
+                    themeIcon.classList.remove('fa-moon');
+                    themeIcon.classList.add('fa-sun');
+                } else {
+                    themeIcon.classList.remove('fa-sun');
+                    themeIcon.classList.add('fa-moon');
+                }
+            }
+
+            // Tab navigation
+            const navTabs = document.querySelectorAll('.nav-tab');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            navTabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const targetTab = tab.getAttribute('data-tab');
+
+                    // Remove active class from all tabs and contents
+                    navTabs.forEach(t => t.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+
+                    // Add active class to clicked tab and corresponding content
+                    tab.classList.add('active');
+                    document.getElementById(targetTab).classList.add('active');
+                });
+            });
+
+            // Portfolio filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const filter = btn.getAttribute('data-filter');
+
+                    // Remove active class from all filter buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    // Filter portfolio cards
+                    portfolioCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
