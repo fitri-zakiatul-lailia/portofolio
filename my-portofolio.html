@@ -14,21 +14,20 @@
             --card-bg: rgba(255, 255, 255, 0.85);
             --shadow-color: rgba(0, 0, 0, 0.1);
             --border-color: #e5e7eb;
-            --gradient-1: #f1f1f1;
-            --gradient-2: #dbeafe;
-            --gradient-3: #f1f1f1;
+            --gradient-1: #c0d4ff;
+            --gradient-2: #e6f4f1;
+            --gradient-3: #c0d4ff;
         }
 
         [data-theme="dark"] {
             --primary-color: #60a5fa;
             --text-color: #f8fafc;
             --bg-color: #0a192f;
-            --card-bg: rgba(59, 73, 107, 0.85);
+            --card-bg: rgba(27, 38, 65, 0.85);
             --shadow-color: rgba(0, 0, 0, 0.3);
-            --border-color: #374151;
-            --gradient-1: #1f2937;
-            --gradient-2: #0a192f;
-            --gradient-3: #1f2937;
+            --gradient-1: #0f1b3f;
+            --gradient-2: #0F4C75;
+            --gradient-3: #1e335f;
         }
 
         * {
@@ -468,7 +467,7 @@
             transition: left 0.5s ease;
         }
 
-        .portfolio-card:hover::before {
+        /* .portfolio-card:hover::before {
             left: 100%;
         }
 
@@ -476,7 +475,7 @@
             transform: translateY(-8px) scale(1.02);
             box-shadow: 0 12px 30px var(--shadow-color);
             border-color: var(--primary-color);
-        }
+        } */
 
         .portfolio-card h3 {
             color: var(--text-color);
@@ -796,7 +795,7 @@
         .skill-item {
             display: flex;
             align-items: center;
-            padding: 0.75rem 0;
+            padding: 0.25rem 0;
             border-bottom: 1px solid rgba(37, 99, 235, 0.1);
             font-size: 0.95rem;
             color: var(--text-color);
@@ -817,14 +816,14 @@
             transition: transform 0.3s ease;
         }
 
-        .skill-item:hover {
+        /* .skill-item:hover {
             padding-left: 0.5rem;
             color: var(--primary-color);
-        }
+        } */
 
-        .skill-item:hover::before {
+        /* .skill-item:hover::before {
             transform: scale(1.3);
-        }
+        } */
 
         /* Education section */
         .education-section {
@@ -842,11 +841,11 @@
             transition: all 0.3s ease;
         }
 
-        .education-item:hover {
+        /* .education-item:hover {
             transform: translateX(10px);
             background: rgba(37, 99, 235, 0.05);
             box-shadow: 0 5px 15px var(--shadow-color);
-        }
+        } */
 
         .education-icon {
             flex-shrink: 0;
@@ -1261,9 +1260,9 @@
                 <button class="nav-tab" data-tab="portfolio">
                     <i class="fas fa-briefcase"></i> Portfolio
                 </button>
-                <button class="nav-tab" data-tab="articles">
+                <!-- <button class="nav-tab" data-tab="articles">
                     <i class="fas fa-newspaper"></i> Articles
-                </button>
+                </button> -->
             </nav>
             <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light mode">
                 <i class="fas fa-moon"></i>
@@ -1288,20 +1287,17 @@
                         <div class="professional-summary-new">
                             <!-- <h2><i class="fas fa-user-tie"></i> Ringkasan Profesional</h2> -->
                             <p>
-                                Lulusan Teknologi Informasi dari Universitas Brawijaya dengan pengalaman 2 tahun sebagai
-                                System
-                                Analyst. Terbiasa bekerja dengan tim lintas fungsi dalam menganalisis kebutuhan,
-                                mengelola
-                                data,
-                                serta membuat laporan dan dokumentasi sistem secara terstruktur. Memiliki ketelitian,
-                                kemampuan
-                                komunikasi yang baik, serta pemahaman terhadap proses bisnis dan alur kerja.
+                                Lulusan Teknologi Informasi dari Universitas Brawijaya dengan 2 tahun pengalaman sebagai
+                                System Analyst. Terampil dalam kolaborasi tim lintas fungsi untuk menganalisis kebutuhan
+                                sistem, merancang solusi yang sesuai, serta menyajikan dokumentasi yang jelas dan
+                                terstruktur. Memiliki kemampuan analisis yang kuat, komunikasi yang efektif, dan
+                                pemahaman mendalam tentang siklus pengembangan sistem.
                             </p>
                         </div>
 
                         <div class="cv-download-new">
-                            <a href="#" class="download-btn-new"
-                                onclick="alert('CV akan segera tersedia untuk didownload')">
+                            <a href="https://drive.google.com/drive/folders/1BiRQkNTp-yH4n_76dXdt-S_0SpwVCr8Y?usp=sharing"
+                                target="_blank" class="download-btn-new">
                                 <i class="fas fa-download"></i>
                                 Download CV
                             </a>
@@ -1313,27 +1309,36 @@
                         <div class="contact-section-new">
                             <h2><i class="fas fa-address-book"></i> Informasi Kontak</h2>
                             <div class="contact-grid-new">
-                                <div class="contact-item-new">
-                                    <i class="fas fa-envelope"></i>
-                                    <div class="contact-info">
-                                        <strong>Email</strong>
-                                        <p>fitrizakiatullailia.work@gmail.com</p>
+                                <a href="mailto:fitrizakiatullailia.work@gmail.com" target="_blank"
+                                    style="text-decoration: none; color: inherit;">
+                                    <div class="contact-item-new">
+                                        <i class="fas fa-envelope"></i>
+                                        <div class="contact-info">
+                                            <strong>Email</strong>
+                                            <p>fitrizakiatullailia.work@gmail.com</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="contact-item-new">
-                                    <i class="fab fa-whatsapp"></i>
-                                    <div class="contact-info">
-                                        <strong>WhatsApp</strong>
-                                        <p>+62 857-4878-7306</p>
+                                </a>
+                                <a href="https://wa.me/6285748787306" target="_blank"
+                                    style="text-decoration: none; color: inherit;">
+                                    <div class="contact-item-new">
+                                        <i class="fab fa-whatsapp"></i>
+                                        <div class="contact-info">
+                                            <strong>WhatsApp</strong>
+                                            <p>+62 857-4878-7306</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="contact-item-new">
-                                    <i class="fab fa-linkedin"></i>
-                                    <div class="contact-info">
-                                        <strong>LinkedIn</strong>
-                                        <p>Fitri Zakiatul Lailia</p>
+                                </a>
+                                <a href="https://www.linkedin.com/in/fitrizakiatulub18" target="_blank"
+                                    style="text-decoration: none; color: inherit;">
+                                    <div class="contact-item-new">
+                                        <i class="fab fa-linkedin"></i>
+                                        <div class="contact-info">
+                                            <strong>LinkedIn</strong>
+                                            <p>Fitri Zakiatul Lailia</p>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1501,128 +1506,114 @@
                 <h2><i class="fas fa-briefcase"></i> My Portfolio</h2>
                 <div class="portfolio-filters">
                     <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="pekerjaan1">Pekerjaan 1</button>
-                    <button class="filter-btn" data-filter="pekerjaan2">Pekerjaan 2</button>
+                    <button class="filter-btn" data-filter="pekerjaan1">Morning Glory Enterprise</button>
+                    <button class="filter-btn" data-filter="pekerjaan2">PT. Alfahuma Rekayasa Teknologi</button>
                     <button class="filter-btn" data-filter="lainnya">Lain-lain</button>
                 </div>
 
                 <div class="portfolio-grid">
                     <div class="portfolio-card" data-category="pekerjaan1">
-                        <div class="category">Pekerjaan 1</div>
-                        <h3>Enterprise Resource Planning System</h3>
+                        <div class="category">Morning Glory Enterprise</div>
+                        <h3>Muatmuat</h3>
                         <div class="description">
-                            Memimpin analisis dan implementasi sistem ERP untuk perusahaan manufaktur dengan 500+
-                            karyawan. Proyek ini mencakup modul inventory, finance, HR, dan production planning.
+                            Muatmuat adalah platform online yang membantu menghubungkan pemilik barang dengan jasa
+                            angkutan truk secara mudah dan cepat. Website ini memudahkan pengguna untuk mencari layanan
+                            pengiriman, mengajukan penawaran, dan melacak pengiriman barang secara real-time.
                         </div>
                         <div class="tech-stack">
-                            <span class="tech-tag">SAP</span>
-                            <span class="tech-tag">Business Analysis</span>
-                            <span class="tech-tag">Process Mapping</span>
-                            <span class="tech-tag">UAT</span>
+                            <span class="tech-tag">System Analyst</span>
                         </div>
                         <div class="links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> View Details</a>
+                            <a href="https://muatmuat.com/login" target="_blank"><i
+                                    class="fas fa-external-link-alt"></i>Muatmuat.com</a>
                         </div>
                     </div>
 
                     <div class="portfolio-card" data-category="pekerjaan1">
-                        <div class="category">Pekerjaan 1</div>
-                        <h3>Customer Relationship Management System</h3>
+                        <div class="category">Morning Glory Enterprise</div>
+                        <h3>Family Tree (Treeport)</h3>
                         <div class="description">
-                            Menganalisis kebutuhan bisnis dan merancang sistem CRM untuk meningkatkan customer
-                            engagement dan sales performance. Implementasi berhasil meningkatkan conversion rate sebesar
-                            35%.
+                            Aplikasi Manajemen Silsilah Keluarga: Mengembangkan aplikasi pribadi untuk manajemen
+                            silsilah keluarga, meliputi backoffice dan Aplikasi, guna mempermudah visualisasi dan
+                            pengelolaan data keluarga lintas generasi.
                         </div>
                         <div class="tech-stack">
-                            <span class="tech-tag">Salesforce</span>
-                            <span class="tech-tag">Requirements Analysis</span>
-                            <span class="tech-tag">Workflow Design</span>
-                            <span class="tech-tag">Data Migration</span>
+                            <span class="tech-tag">System Analyst</span>
                         </div>
                         <div class="links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> View Details</a>
+                            <a href="https://play.google.com/store/apps/details?id=com.familytree.family_tree&pcampaignid=web_share"
+                                target="_blank"><i class="fas fa-external-link-alt"></i>Treeport</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-category="pekerjaan1">
+                        <div class="category">Morning Glory Enterprise</div>
+                        <h3>Warehouse Management System (WMS)</h3>
+                        <div class="description">
+                            Merancang dan mengembangkan sistem manajemen gudang seperti fitur pengelolaan Purchase Order
+                            (PO), budgeting, serta pembuatan Surat Jalan Masuk dan Keluar, guna meningkatkan efisiensi
+                            operasional gudang dan mendukung peningkatan kinerja perusahaan secara menyeluruh.
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">System Analyst</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://docs.google.com/document/d/14bubYv8a-EStHzmkSvps4nUIf0M7OiXtppYbQpqKULI/edit?usp=sharing"
+                                target="_blank"><i class="fas fa-external-link-alt"></i> View Document</a>
+                        </div>
+                    </div>
+
+                    <div class="portfolio-card" data-category="pekerjaan1">
+                        <div class="category">Morning Glory Enterprise</div>
+                        <h3>Marketplace lorem ipsum</h3>
+                        <div class="description">
+                            marketplace lorem ipsum marketplace lorem ipsum marketplace lorem ipsum marketplace lorem
+                            ipsum marketplace lorem ipsum marketplace lorem ipsum
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">System Analyst</span>
+                        </div>
+                        <div class="links">
+                            <a href="https://docs.google.com/document/d/1p0YjuVkLiU20pYGpEVozWQ5iOglwHIlJnoAXRIADScE/edit?usp=sharing"
+                                target="_blank"><i class="fas fa-external-link-alt"></i> View Document</a>
                         </div>
                     </div>
 
                     <div class="portfolio-card" data-category="pekerjaan2">
-                        <div class="category">Pekerjaan 2</div>
-                        <h3>E-commerce Mobile Application</h3>
+                        <div class="category">PT. Alfahuma Rekayasa Teknologi</div>
+                        <h3>Bundana</h3>
                         <div class="description">
-                            Business analysis dan UI/UX design untuk aplikasi mobile e-commerce. Fokus pada user
-                            experience optimization dan conversion funnel analysis untuk meningkatkan penjualan online.
+                            Melakukan perancangan sistem aplikasi mobile yang ditujukan sebagai pendamping dan sumber
+                            informasi bagi ibu hamil di Kota Jakarta. Tugas saya meliputi pembuatan diagram UML (Use
+                            Case, Activity Diagram, dll) dan dokumentasi kebutuhan sistem untuk memastikan aplikasi
+                            dapat memenuhi kebutuhan pengguna dengan baik dan berjalan sesuai tujuan bisnis.
                         </div>
                         <div class="tech-stack">
-                            <span class="tech-tag">React Native</span>
-                            <span class="tech-tag">UI/UX Design</span>
-                            <span class="tech-tag">User Research</span>
-                            <span class="tech-tag">A/B Testing</span>
+                            <span class="tech-tag">System Analyst</span>
                         </div>
                         <div class="links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> View Details</a>
-                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
-                        </div>
-                    </div>
-
-                    <div class="portfolio-card" data-category="pekerjaan2">
-                        <div class="category">Pekerjaan 2</div>
-                        <h3>Business Intelligence Dashboard</h3>
-                        <div class="description">
-                            Merancang dan mengimplementasikan dashboard BI untuk executive reporting. Mengintegrasikan
-                            data dari multiple sources dan menyajikan insights yang actionable untuk strategic decision
-                            making.
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">Power BI</span>
-                            <span class="tech-tag">SQL</span>
-                            <span class="tech-tag">Data Visualization</span>
-                            <span class="tech-tag">ETL Process</span>
-                        </div>
-                        <div class="links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> View Details</a>
+                            <a href="https://drive.google.com/file/d/17GsnzcF_NqY5NMtX5NymZCLRTi7Rn4XL/view?usp=sharing"
+                                target="_blank"><i class="fas fa-external-link-alt"></i> View Details</a>
                         </div>
                     </div>
 
                     <div class="portfolio-card" data-category="lainnya">
                         <div class="category">Lain-lain</div>
-                        <h3>Personal Finance Management App</h3>
+                        <h3>Rurubox</h3>
                         <div class="description">
-                            Proyek personal untuk mengembangkan aplikasi manajemen keuangan pribadi. Menerapkan
-                            prinsip-prinsip UX design dan system analysis dalam pengembangan produk digital.
+                            Rurubox rurubox rurubox
                         </div>
                         <div class="tech-stack">
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">System Analyst</span>
                             <span class="tech-tag">UI/UX Design</span>
-                            <span class="tech-tag">Product Management</span>
                         </div>
                         <div class="links">
                             <a href="#"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                            <a href="#"><i class="fab fa-github"></i> GitHub</a>
                         </div>
                     </div>
 
-                    <div class="portfolio-card" data-category="lainnya">
-                        <div class="category">Lain-lain</div>
-                        <h3>Community Management Platform</h3>
-                        <div class="description">
-                            Platform untuk mengelola komunitas IT professionals di Surabaya. Mencakup fitur event
-                            management, member directory, dan knowledge sharing forum.
-                        </div>
-                        <div class="tech-stack">
-                            <span class="tech-tag">WordPress</span>
-                            <span class="tech-tag">Community Building</span>
-                            <span class="tech-tag">Event Management</span>
-                            <span class="tech-tag">Content Strategy</span>
-                        </div>
-                        <div class="links">
-                            <a href="#"><i class="fas fa-external-link-alt"></i> Visit Site</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-- Articles Tab -->
+                    <!-- Articles Tab 
         <div class="tab-content" id="articles">
             <div class="section">
                 <h2><i class="fas fa-newspaper"></i> Articles & Publications</h2>
@@ -1676,82 +1667,82 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+        </div>-->
+                </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Theme toggle functionality
-            const themeToggle = document.getElementById('themeToggle');
-            const themeIcon = themeToggle.querySelector('i');
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                        // Theme toggle functionality
+                        const themeToggle = document.getElementById('themeToggle');
+                        const themeIcon = themeToggle.querySelector('i');
 
-            const savedTheme = localStorage.getItem('theme');
-            if (savedTheme) {
-                document.documentElement.setAttribute('data-theme', savedTheme);
-                updateThemeIcon(savedTheme);
-            }
-
-            themeToggle.addEventListener('click', function () {
-                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-                document.documentElement.setAttribute('data-theme', newTheme);
-                localStorage.setItem('theme', newTheme);
-                updateThemeIcon(newTheme);
-            });
-
-            function updateThemeIcon(theme) {
-                if (theme === 'dark') {
-                    themeIcon.classList.remove('fa-moon');
-                    themeIcon.classList.add('fa-sun');
-                } else {
-                    themeIcon.classList.remove('fa-sun');
-                    themeIcon.classList.add('fa-moon');
-                }
-            }
-
-            // Tab navigation
-            const navTabs = document.querySelectorAll('.nav-tab');
-            const tabContents = document.querySelectorAll('.tab-content');
-
-            navTabs.forEach(tab => {
-                tab.addEventListener('click', () => {
-                    const targetTab = tab.getAttribute('data-tab');
-
-                    // Remove active class from all tabs and contents
-                    navTabs.forEach(t => t.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-
-                    // Add active class to clicked tab and corresponding content
-                    tab.classList.add('active');
-                    document.getElementById(targetTab).classList.add('active');
-                });
-            });
-
-            // Portfolio filter functionality
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            const portfolioCards = document.querySelectorAll('.portfolio-card');
-
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const filter = btn.getAttribute('data-filter');
-
-                    // Remove active class from all filter buttons
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-
-                    // Filter portfolio cards
-                    portfolioCards.forEach(card => {
-                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                            card.style.display = 'block';
-                        } else {
-                            card.style.display = 'none';
+                        const savedTheme = localStorage.getItem('theme');
+                        if (savedTheme) {
+                            document.documentElement.setAttribute('data-theme', savedTheme);
+                            updateThemeIcon(savedTheme);
                         }
+
+                        themeToggle.addEventListener('click', function () {
+                            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+                            document.documentElement.setAttribute('data-theme', newTheme);
+                            localStorage.setItem('theme', newTheme);
+                            updateThemeIcon(newTheme);
+                        });
+
+                        function updateThemeIcon(theme) {
+                            if (theme === 'dark') {
+                                themeIcon.classList.remove('fa-moon');
+                                themeIcon.classList.add('fa-sun');
+                            } else {
+                                themeIcon.classList.remove('fa-sun');
+                                themeIcon.classList.add('fa-moon');
+                            }
+                        }
+
+                        // Tab navigation
+                        const navTabs = document.querySelectorAll('.nav-tab');
+                        const tabContents = document.querySelectorAll('.tab-content');
+
+                        navTabs.forEach(tab => {
+                            tab.addEventListener('click', () => {
+                                const targetTab = tab.getAttribute('data-tab');
+
+                                // Remove active class from all tabs and contents
+                                navTabs.forEach(t => t.classList.remove('active'));
+                                tabContents.forEach(content => content.classList.remove('active'));
+
+                                // Add active class to clicked tab and corresponding content
+                                tab.classList.add('active');
+                                document.getElementById(targetTab).classList.add('active');
+                            });
+                        });
+
+                        // Portfolio filter functionality
+                        const filterBtns = document.querySelectorAll('.filter-btn');
+                        const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+                        filterBtns.forEach(btn => {
+                            btn.addEventListener('click', () => {
+                                const filter = btn.getAttribute('data-filter');
+
+                                // Remove active class from all filter buttons
+                                filterBtns.forEach(b => b.classList.remove('active'));
+                                btn.classList.add('active');
+
+                                // Filter portfolio cards
+                                portfolioCards.forEach(card => {
+                                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                                        card.style.display = 'block';
+                                    } else {
+                                        card.style.display = 'none';
+                                    }
+                                });
+                            });
+                        });
                     });
-                });
-            });
-        });
-    </script>
+                </script>
 </body>
 
 </html>
